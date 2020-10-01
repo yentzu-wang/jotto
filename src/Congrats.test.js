@@ -1,7 +1,7 @@
 import React from "react"
 import { shallow } from "enzyme"
 import Congrats from "./Congrats"
-import { findByTestAttr } from "../test/testUtils"
+import { findByTestAttr, checkProps } from "../test/testUtils"
 
 const setup = (props = {}) => {
   return shallow(<Congrats {...props} />)
@@ -23,4 +23,9 @@ test("render non-empty congrats message when `success` prop is true", () => {
   const wrapper = setup({ success: true })
   const message = findByTestAttr(wrapper, "congrats-message")
   expect(message.text().length).not.toBe(0)
+})
+
+test("does not throw warning with expected props", () => {
+  const expectedProps = { success: false }
+  checkProps(Congrats, expectedProps)
 })
