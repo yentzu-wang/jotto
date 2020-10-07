@@ -6,10 +6,11 @@ import Input from "./Input"
 const setup = (initialState = {}) => {
   const store = storeFactory(initialState)
   const wrapper = shallow(<Input store={store} />)
-  console.log(wrapper.debug())
-}
+    .dive()
+    .dive()
 
-setup()
+  return wrapper
+}
 
 describe("render", () => {
   describe("word has not been guessed", () => {
