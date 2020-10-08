@@ -27,7 +27,7 @@ describe("guessWord action dispatcher", () => {
       }
       const newState = store.getState()
 
-      expectedState(newState).toEqual(expectedState)
+      expect(newState).toEqual(expectedState)
     })
 
     test("updates state correctly for successful guess", () => {})
