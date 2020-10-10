@@ -96,7 +96,7 @@ describe("`guessWord` action creator call", () => {
 
     // simulate clicked
     const submitButton = findByTestAttr(wrapper, "submit-button")
-    submitButton.simulate("click")
+    submitButton.simulate("click", { preventDefault() {} })
   })
   test("call `guessWord` when button is clicked", () => {
     // check to see if mock ran
